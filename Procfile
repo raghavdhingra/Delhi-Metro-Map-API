@@ -1,0 +1,1 @@
+web: gunicorn delhiMetro.wsgi --log-file -
