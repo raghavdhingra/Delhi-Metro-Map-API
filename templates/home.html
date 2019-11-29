@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" />
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="navbar" id="navbar">
+        <div class="container">
+            <div style="vertical-align: middle;line-height: 50px;">
+                <span class="nav-head">Delhi Metro API</span>
+                <div style="display: inline-flex;float: right;">
+                    <span class="ham-btn" onclick="expand();"><i class="fas fa-bars"></i></span>
+                </div>
+            </div>
+            <div class="nav-item-container">
+                <a href="#"> Home </a>
+                <a href="https://github.com/raghavdhingra/Delhi-Metro-Map-API"> Fork on Github </a>
+                <a href="https://github.com/raghavdhingra/"> View Github Profile </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="back">
+        <div class="container">
+            <span class="heading">
+                Delhi Metro Map API
+            </span>
+            <div class="contain-inner">
+                <p style="line-height: 1.2em;font-size: 1.2em;color: #666;margin: 0.5em 0;">Get Your Delhi Metro journey information easily</p>
+                <p style="font-size: 0.8em;color: #666;">It will provide the metro route, timing, interchanges, line colour, ending lines of your journey from one station to another.</p>
+                <br>
+                <form method="POST" action="{% url 'metroapi' %}">
+                    {% csrf_token %}
+                    <div class="inputGrid">
+                        <div style="color: #666;">
+                            From: <br>
+                            <input type="text" class="inputField" name="fromField" id="fromField" placeholder="Starting Station" required />
+                        </div>
+                        <div style="color: #666;">
+                            To: <br>
+                            <input type="text" class="inputField" name="toField" id="toField" placeholder="Ending Station" required />
+                        </div>
+                    </div>
+                    <input type="submit" class="respBtn" value="Get Response" />    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div style="bottom: 0;position: absolute;width: 100%;padding: 0.5em 0;color: #eee;text-align: center;font-size: 1.5em;font-weight: bold;background: #333;">Made with <i class="far fa-heart" style="color: red;text-shadow: 0 0 3px #fff;"></i> Keyboard by Raghav Dhingra</div>
+
+{% endblock %}
+
+{% block script %}
+
+    <script src="{% static 'js/home.js' %}"></script>
+
+{% endblock %}
