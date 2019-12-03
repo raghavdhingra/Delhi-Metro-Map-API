@@ -10,6 +10,9 @@ def home(request):
     }
     return render(request,'home.html',context)
 
+def metroList(request):
+    return render(request,'metrolist.html')
+
 def metroapi(request):
     url = "/"
     if request.method == 'POST':
