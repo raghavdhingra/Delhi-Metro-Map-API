@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home,name="home"),
     path('metroapi', views.metroapi,name="metroapi"),
+    path('metro-list', views.metroList,name="metroList"),
     path('metroapi/from=<fromStation>&to=<toStation>', views.apiRedirect),
 ]
